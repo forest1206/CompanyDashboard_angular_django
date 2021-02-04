@@ -68,12 +68,12 @@ SETTING FOR CORS HEADER
 """
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_WHITELIST = (
-    'localhost:4200', 'http://54.241.108.79', '*'
-)
-CORS_ORIGIN_REGEX_WHITELIST = (
-    'localhost:4200', 'http://54.241.108.79', '*'
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'localhost:4200', 'http://54.241.108.79', '*'
+# )
+# CORS_ORIGIN_REGEX_WHITELIST = (
+#     'localhost:4200', 'http://54.241.108.79', '*'
+# )
 
 TEMPLATES = [
     {
@@ -146,11 +146,20 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'dropify',
+    #     'USER': 'admin_user',
+    #     'PASSWORD': 'Caleo2018',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
+    #     'OPTIONS': {'sslmode': 'disable'},
+    # },
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dropify',
-        'USER': 'admin_user',
-        'PASSWORD': 'Caleo2018',
+        'USER': 'postgres',
+        'PASSWORD': 'admin123',
         'HOST': 'localhost',
         'PORT': '',
         'OPTIONS': {'sslmode': 'disable'},

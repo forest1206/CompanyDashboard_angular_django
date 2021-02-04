@@ -7,7 +7,7 @@ class Customer(models.Model):
     first_name = models.CharField(max_length=400, blank=True, default='')
     last_name = models.CharField(max_length=400, blank=True, default='')
     email = models.EmailField(blank=True)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     company = models.CharField(max_length=400, blank=True, default='')
     phone = models.CharField(max_length=400, blank=True, default='')
     apartment = models.CharField(max_length=400, blank=True, default='')
