@@ -32,9 +32,6 @@ class InvitationView(APIView):
         return Response(response)
 
 
-
-
-
 class ActivationEmail(BaseEmailMessage):
     template_name = 'email/invitation.html'
 

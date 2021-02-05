@@ -8,14 +8,14 @@ djangorestframework==3.9.0
 markdown==3.0.1
 django-filter==2.0.0
 django-cors-headers==2.4.0
-Pillow
-fcm-django
-django-shopify-webhook
+Pillow==8.1.0
+fcm-django==0.3.7
+django-shopify-webhook==0.5.1
 enum-compat==0.0.2
 eventlet==0.21.0
 greenlet==0.4.17
-python-engineio
-python-socketio
+python-engineio==3.13.2
+python-socketio==4.6.0
 pytz==2018.7
 six==1.10.0
 

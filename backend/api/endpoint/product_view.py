@@ -29,7 +29,8 @@ class ProductView(generics.ListCreateAPIView):
         company_id = self.request.data['company']
         image = self.request.data['image']
         company = Company.objects.filter(id=company_id).first()
-        product = Product.objects.create(name=name, description=description, image=image, sku=sku, price=price, company=company)
+        product = Product.objects.create(name=name, description=description, image=image, sku=sku, price=price,
+                                         company=company)
         product_serializer = ProductSerializer(product)
 
         variation_types = self.request.data['variation_type']
@@ -39,7 +40,8 @@ class ProductView(generics.ListCreateAPIView):
 
             variation_type_attributes = variation_type['value']
             for variation_type_attribute in variation_type_attributes:
-                VariationTypeAttribute.objects.create(variation_type=variation_type_entry, attribute=variation_type_attribute)
+                VariationTypeAttribute.objects.create(variation_type=variation_type_entry,
+                                                      attribute=variation_type_attribute)
 
         variations = self.request.data['variations']
         for variation in variations:
@@ -185,6 +187,7 @@ class SearchProductView(APIView):
     get product by name
 
     """
+
     def get(self, request, *args, **kwargs):
         response = []
         filter = request.query_params['filter']

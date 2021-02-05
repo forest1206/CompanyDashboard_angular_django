@@ -159,9 +159,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'dropify',
         'USER': 'postgres',
-        'PASSWORD': 'admin123',
+        'PASSWORD': ' ',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
         'OPTIONS': {'sslmode': 'disable'},
     }
 }
@@ -170,15 +170,15 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
     },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
@@ -199,12 +199,16 @@ USE_TZ = True
 
 
 # ************************ Email setting ******************************
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'mail.dropify.net'
-EMAIL_HOST_USER = 'contact@dropify.net'
-EMAIL_HOST_PASSWORD = 'Caleo#2018'
-EMAIL_PORT = 2525
-DEFAULT_FROM_EMAIL='contact@dropify.net'
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'mail.dropify.net'
+# EMAIL_HOST_USER = 'contact@dropify.net'
+# EMAIL_HOST_PASSWORD = 'Caleo#2018'
+# EMAIL_PORT = 2525
+# DEFAULT_FROM_EMAIL='contact@dropify.net'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
+EMAIL_FILE_PATH = 'tmp/emails'
 
 DJOSER = {
     'SEND_ACTIVATION_EMAIL': True,

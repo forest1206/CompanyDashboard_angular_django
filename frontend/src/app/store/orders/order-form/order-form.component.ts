@@ -1,13 +1,13 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {AppService} from "../../../app.service";
-import {Variation} from "../../../models/variation";
-import {ApiService} from "../../../@api/api.service";
-import {Order} from "../../../models/order";
-import {MeService} from "../../../@services/me.service";
-import {LoaderService} from "../../../@services/loader.service";
-import {ActivatedRoute, Route, Router} from "@angular/router";
-import {HandleSocketService} from "../../../@services/handle-socket.service";
+import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AppService } from "../../../app.service";
+import { Variation } from "../../../models/variation";
+import { ApiService } from "../../../@api/api.service";
+import { Order } from "../../../models/order";
+import { MeService } from "../../../@services/me.service";
+import { LoaderService } from "../../../@services/loader.service";
+import { ActivatedRoute, Route, Router } from "@angular/router";
+import { HandleSocketService } from "../../../@services/handle-socket.service";
 
 @Component({
   selector: 'app-order-form',
@@ -42,11 +42,12 @@ export class OrderFormComponent implements OnInit {
     this.http.get('assets/json/pages_e-commerce_product-list.json')
       .subscribe((data: any) => {
         this.products = data.slice(0);
-
+        console.log('data', data)
         // this.addedProducts = data.slice(0);
       });
   }
   selectProduct(variations) {
+    console.log('variations', variations)
     variations.forEach(variation => {
       let is_exist = false;
       this.addedProducts.forEach(product => {
@@ -68,7 +69,7 @@ export class OrderFormComponent implements OnInit {
       this.api.order.getOrder(orderId).promise().then(resp => {
 
         this.loaderService.display(false);
-        if(resp.length === 0) {
+        if (resp.length === 0) {
           window.history.back();
           return;
         }
@@ -119,16 +120,16 @@ export class OrderFormComponent implements OnInit {
     this.order.products = products;
     this.order.amounts = amounts;
     this.loaderService.display(true);
-    if(this.order.id) {
+    if (this.order.id) {
       this.api.order.update(this.order).promise().then(resp => {
-      this.loaderService.display(false);
-      this.router.navigate(['/store/orders'])
-    })
+        this.loaderService.display(false);
+        this.router.navigate(['/store/orders'])
+      })
     } else {
       this.api.order.post(this.order).promise().then(resp => {
-      this.loaderService.display(false);
-      this.router.navigate(['/store/orders'])
-    })
+        this.loaderService.display(false);
+        this.router.navigate(['/store/orders'])
+      })
     }
 
   }

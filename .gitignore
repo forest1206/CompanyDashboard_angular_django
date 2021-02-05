@@ -14,3 +14,4 @@ backend/authentication/social/__pycache__/
 backend/authentication/social/token/__pycache__/
 
 frontend/node_modules
+backend/tmp/
